@@ -25,12 +25,12 @@ foreach ($products as $p) {
     $total += $p['price'] * $cart[$p['id']];
 }
 
-/* INSERT ORDER */
+
 $stmt = $pdo->prepare("INSERT INTO orders (user_id, total) VALUES (?, ?)");
 $stmt->execute([$user_id, $total]);
 $order_id = $pdo->lastInsertId();
 
-/* INSERT ITEMS */
+
 $stmt = $pdo->prepare("
     INSERT INTO order_items (order_id, product_id, price, quantity)
     VALUES (?, ?, ?, ?)
@@ -44,7 +44,7 @@ foreach ($cart as $pid => $qty) {
         $qty
     ]);
 }
-// nakon što snimiš u DB
+
 $user_email = $_SESSION['user']['email'];
 $user_name = $_SESSION['user']['name'];
 
@@ -53,11 +53,11 @@ $subject = "Potvrda narudžbe #".$order_id;
 $message = "Pozdrav $user_name,\n\nHvala na kupovini! Vaša narudžba #$order_id je primljena.\n\nUkupno: ".number_format($total,2)." €\n\nPozdrav,\nFood CMS Team";
 $headers = "From: info@foodcms.local";
 
-// šalje e-mail (lokalno XAMPP možda ne šalje prave mailove, ali funkcija postoji)
+
 mail($to, $subject, $message, $headers);
 
-/* CLEAR CART */
 unset($_SESSION['cart']);
 
 header("Location: order_success.php");
 exit;
+
