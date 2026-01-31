@@ -14,7 +14,7 @@ if(!isset($_GET['id'])){
 
 $order_id = (int)$_GET['id'];
 
-// dohvat narudžbe
+
 $stmt = $pdo->prepare("SELECT * FROM orders WHERE id=?");
 $stmt->execute([$order_id]);
 $order = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -24,7 +24,7 @@ if(!$order){
     exit;
 }
 
-// dohvat stavki
+
 $stmt = $pdo->prepare("SELECT oi.*, p.name FROM order_items oi JOIN products p ON oi.product_id = p.id WHERE oi.order_id=?");
 $stmt->execute([$order_id]);
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -67,3 +67,4 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 </body>
 </html>
+
