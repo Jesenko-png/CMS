@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #832f2f;
+  color: #cf0d0d;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.add-form textarea,
+.add-form button {
+  grid-column: span 2;
+}
+
+input,
+textarea,
+button {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 14px;
+}
+
+textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+  align-items: stretch;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+/* SLIKA */
+.image-box {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.no-image {
+  color: #999;
+  font-style: italic;
+}
+
+/* FORM UNUTAR KARTICE */
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+textarea {
+  height: 70px;
+  resize: none;
+}
+
+/* AKCIJSKA DUGMAD */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.actions .btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+}
+
+.btn.success {
+  background-color: #28a745;
+}
+.btn.danger {
+  background-color: #dc3545;
+}
+.btn.primary {
+  background-color: #007bff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* DUGME “DODAJ U KORPU” */
+.add-to-cart-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.add-to-cart-form button {
+  flex: 1;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  transition: 0.2s all;
+}
+
+.add-to-cart-form button.success {
+  background-color: #28a745;
+}
+
+/* KORPA  */
+.quantity-input {
+  width: 40px;
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* AUTH LOGIN / REGISTER */
+.auth-container {
+  max-width: 400px;
+  margin: 80px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+.auth-form input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.auth-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #28a745;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.auth-form button:hover {
+  opacity: 0.9;
+}
+
+p.error {
+  color: red;
+}
+p.success {
+  color: green;
+}
+
+/* LOGOUT I “POGLEDAJ KORPU” DUGMAD */
+.logout,
+.btn.primary,
+.btn.danger,
+.btn.success {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.logout {
+  background-color: #c00;
+}
+.btn.primary {
+  background-color: #007bff;
+}
+.btn.success {
+  background-color: #28a745;
+}
+.btn.danger {
+  background-color: #dc3545;
+}
+
+.logout:hover,
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+  .image-box {
+    height: 100px;
+  }
+}
