@@ -7,7 +7,6 @@ if(!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin'){
     exit;
 }
 
-// dohvat svih narudžbi
 $stmt = $pdo->query("SELECT * FROM orders ORDER BY created_at DESC");
 $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -54,3 +53,4 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 </body>
 </html>
+
